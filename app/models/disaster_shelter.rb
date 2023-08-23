@@ -1,0 +1,2 @@
+class DisasterShelter < ApplicationRecord
+end
