@@ -3,7 +3,7 @@ class ResidentsController < ApplicationController
     @residents = Resident.all
   end
 
-  # def show
-  #   @disaster_shelter = DisasterShelter.find(params[:id])
-  # end
+  def show
+    @resident = Resident.find(params[:id])
+  end
 end

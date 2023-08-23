@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/disaster_shelters", to: "disaster_shelters#index"
   get "/disaster_shelters/:id", to: "disaster_shelters#show"
   get "/residents", to: "residents#index"
+  get "/residents/:id", to: "residents#show"
 end
