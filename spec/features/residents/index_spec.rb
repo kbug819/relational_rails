@@ -19,10 +19,27 @@ RSpec.describe "Resident Index", type: :feature do
         expect(page).to have_content(bradley.long_term_housing_need)
         expect(page).to have_content(bradley.family_size)
         expect(page).to have_content(bradley.shelter_id)
-        
       end
     end
   end
 
+  describe "8. As a visitor" do
+    describe "when I visit any page on the site" do
+      it "then I see a link at the top of the page that takes me to the resident index" do
+        arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+        austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
+        jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
+        bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{austin_street.id}")
 
+        visit "/shelters"
+        expect(page).to have_content("List of Residents")
+        visit "/residents"
+        expect(page).to have_content("List of Residents")
+      end
+    end
+  end
 end
+
+
+
+
