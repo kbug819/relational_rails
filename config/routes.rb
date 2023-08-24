@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   get "/", to: "welcome#index"
   get "/shelters", to: "shelters#index"
+  get "/shelters/new", to: "shelters#new"
   get "/shelters/:id", to: "shelters#show"
   get "/residents", to: "residents#index"
   get "/residents/:id", to: "residents#show"
-  get "/shelters/:id/residents", to: "shelters#resident_view"
-  get "/shelters/new", to: "shelters#new"
+  get "/shelters/:id/residents", to: "shelter_residents#index"
+  # get "/shelters/:id/residents", to: "shelters#resident_view"
+  post "/shelters", to: "shelters#create"
 end
