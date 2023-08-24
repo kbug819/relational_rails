@@ -41,7 +41,6 @@ RSpec.describe "Resident Index", type: :feature do
         expect(page).to have_content("List of All Residents")
         visit "/shelters/#{arlington_life.id}/residents"
         expect(page).to have_content("List of All Residents")
-
       end
     end
   end

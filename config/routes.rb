@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get "/shelters/:id/residents", to: "shelter_residents#index"
   # get "/shelters/:id/residents", to: "shelters#resident_view"
   post "/shelters", to: "shelters#create"
+  get "/shelters/:id/edit", to: "shelters#edit"
+  patch "/shelters/:id", to: 'shelters#update'
 end
