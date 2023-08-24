@@ -44,7 +44,7 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
 
         visit "/shelters/#{arlington_life.id}"
 
-        expect(page).to have_content("Residents = 1")
+        expect(page).to have_content("Current Resident Count: 1")
       end
     end
   end
