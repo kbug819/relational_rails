@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "/residents", to: "residents#index"
   get "/residents/:id", to: "residents#show"
   get "/shelters/:id/residents", to: "shelters#resident_view"
+  get "/shelters/new", to: "shelters#new"
 end
