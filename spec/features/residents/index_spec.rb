@@ -32,9 +32,16 @@ RSpec.describe "Resident Index", type: :feature do
         bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{austin_street.id}")
 
         visit "/shelters"
-        expect(page).to have_content("List of Residents")
+        expect(page).to have_content("List of All Residents")
         visit "/residents"
-        expect(page).to have_content("List of Residents")
+        expect(page).to have_content("List of All Residents")
+        visit "/residents/#{jones.id}/"
+        expect(page).to have_content("List of All Residents")
+        visit "/shelters/#{arlington_life.id}/"
+        expect(page).to have_content("List of All Residents")
+        visit "/shelters/#{arlington_life.id}/residents"
+        expect(page).to have_content("List of All Residents")
+
       end
     end
   end
