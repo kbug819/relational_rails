@@ -1,15 +1,33 @@
 class SheltersController < ApplicationController
   def index
-    @shelters = Shelter.all.order(created_at: :asc)
+    @shelters = Shelter.all.order_by_creation
+    # @shelters = Shelter.all.order(created_at: :asc)
+    # @shelters = Shelter.all
+  end
+
+  def new
   end
 
   def show
     @shelter = Shelter.find(params[:id])
   end
 
-  def resident_view
-    @shelter = Shelter.find(params[:id])
-    @residents = @shelter.residents
+  # def resident_view
+  #   @shelter = Shelter.find(params[:id])
+  #   @residents = @shelter.residents
+  # end
+
+  def create
+    shelter = Shelter.new({
+      shelter_name: params[:shelter_name],
+      address: params[:address],
+      capasity: params[:capasity]
+    })
+
+    shelter.save
+
+    redirect_to '/shelters'
   end
+
 
 end
