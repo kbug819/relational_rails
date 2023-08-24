@@ -1,4 +1,4 @@
-<h1>All Residents</h1>
+<h1><%=@shelter.shelter_name%> Residents</h1>
 
 <% @residents.each do |resident| %>
   <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a></h3>

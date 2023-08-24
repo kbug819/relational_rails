@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/", to: "welcome#index"
-  get "/disaster_shelters", to: "disaster_shelters#index"
-  get "/disaster_shelters/:id", to: "disaster_shelters#show"
+  get "/shelters", to: "shelters#index"
+  get "/shelters/:id", to: "shelters#show"
   get "/residents", to: "residents#index"
   get "/residents/:id", to: "residents#show"
+  get "/shelters/:id/residents", to: "shelters#resident_view"
 end

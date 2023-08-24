@@ -1,0 +1,8 @@
+<h1>All Disaster Shelters</h1>
+
+<% @shelters.each do |shelter| %>
+  <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.shelter_name %></a></h3>
+
+<% end %>
+
+
