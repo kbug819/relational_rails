@@ -1,3 +1,7 @@
+<body>
+<p><h11><a href="/shelters">Shelter List</a></h11></p>
+<p><h11><a href="/residents">List of All Residents</a></h11></p>
+
 <h1><%=@shelter.shelter_name%> Residents</h1>
 
 <% @residents.each do |resident| %>
@@ -6,3 +10,5 @@
   <p>Family Size: <%=resident.family_size%></p>
   <p>Current Shelter ID: <%=resident.shelter_id%></p>
 <% end %>
+
+</body>

@@ -1,9 +1,14 @@
+<body>
+<p><h11><a href="/shelters">Shelter List</a></h11></p>
+<p><h11><a href="/residents">List of All Residents</a></h11></p>
 
+<header>
 <h1>All Disaster Shelters</h1>
+</header>
 
 <% @shelters.each do |shelter| %>
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.shelter_name %></a>    <%=shelter.created_at%></h3>
-
 <% end %>
+</body>
 
 
