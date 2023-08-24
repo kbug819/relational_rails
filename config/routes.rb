@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post "/shelters", to: "shelters#create"
   get "/shelters/:id/edit", to: "shelters#edit"
   patch "/shelters/:id", to: 'shelters#update'
+  get "/shelters/:id/residents/new", to: "shelter_residents#new"
+  post "/shelters/:id/new", to: "shelter_residents#create"
 end

@@ -21,6 +21,7 @@ class SheltersController < ApplicationController
     shelter = Shelter.new({
       shelter_name: params[:shelter_name],
       address: params[:address],
+      case_management_available: params[:case_management_available],
       capasity: params[:capasity]
     })
 
@@ -38,6 +39,7 @@ class SheltersController < ApplicationController
     shelter.update({
       shelter_name: params[:shelter_name],
       address: params[:address],
+      case_management_available: params[:case_management_available],
       capasity: params[:capasity]
     })
     shelter.save
