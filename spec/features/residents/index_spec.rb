@@ -23,4 +23,6 @@ RSpec.describe "Resident Index", type: :feature do
       end
     end
   end
+
+
 end
