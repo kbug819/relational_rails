@@ -9,4 +9,6 @@ RSpec.describe Shelter, type: :model do
     it { should have_many :residents }
   end
   # it {should have_many :residents}
+
+
 end

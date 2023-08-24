@@ -1,6 +1,6 @@
 class SheltersController < ApplicationController
   def index
-    @shelters = Shelter.all
+    @shelters = Shelter.all.order(created_at: :asc)
   end
 
   def show
