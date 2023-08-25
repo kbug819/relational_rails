@@ -19,6 +19,11 @@
 <% @residents.each do |resident| %>
   <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a>
   <a href="/residents/<%= resident.id %>/edit">Edit Resident Record</a>
+    <form action="/residents/<%= resident.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+    </form>
   </h3>
   <p>Long Term Housing Needed: <%=resident.long_term_housing_need%></p>
   <p>Family Size: <%=resident.family_size%></p>
