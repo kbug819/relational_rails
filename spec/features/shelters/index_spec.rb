@@ -67,4 +67,16 @@ RSpec.describe "Disaster Shelter Index", type: :feature do
       end
     end
   end
+
+  describe "17 As a visitor" do
+    describe "I can visit the index page and see an edit button next to each shelter" do
+      it "will take the user to the edit page for that shelter" do
+        arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+        austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
+        visit "/shelters"
+        expect(page).to have_content("Edit Shelter Record")
+      end
+    end
+  end
+
 end
