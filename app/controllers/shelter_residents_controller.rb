@@ -23,4 +23,11 @@ class ShelterResidentsController < ApplicationController
 
     redirect_to action: "index"
   end
+
+  def sorted_a
+    @shelter = Shelter.find(params[:id])
+    @residents = @shelter.residents
+    @sorted = @residents.order_by_alphabetical
+  end
+
 end
