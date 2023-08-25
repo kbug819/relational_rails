@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get "/shelters/:id/residents/sorted_a", to: "shelter_residents#sorted_a"
   delete "/shelters/:id", to: 'shelters#destroy'
   delete "/residents/:id", to: 'residents#destroy'
+  post "/shelters/:id/residents/by_family_view", to: 'shelter_residents#by_family_view'
 end
