@@ -19,4 +19,17 @@ RSpec.describe "Resident Show", type: :feature do
       
     end
   end
+
+  describe "14.1 when a resident's show page is visited" do
+    it "shows an edit button that allows the user to edit the resident entry" do
+      arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+
+      jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
+
+      visit "/residents/#{jones.id}"
+      expect(page).to have_content("Edit Resident Information")
+    end
+  end
+
+
 end

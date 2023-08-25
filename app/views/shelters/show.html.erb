@@ -6,7 +6,9 @@
 <p>Shelter Address: <%=@shelter.address %></p>
 <p>Case Management Available: <%=@shelter.case_management_available %></p>
 <p>Capasity: <%=@shelter.capasity %></p>
-<p>Current Resident Count: <%=@shelter.residents.count%>
+<p>Current Resident Count: <%=@shelter.residents.count%></p>
+
+<a href="/shelters/<%= @shelter.id %>/edit">Update Shelter Record</a>
 <p><a href="/shelters/<%= @shelter.id %>/residents">Current Residents At This Shelter</a></p>
 
 </body>
