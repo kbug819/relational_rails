@@ -32,4 +32,6 @@ RSpec.describe "Resident Show", type: :feature do
   end
 
 
+
+
 end
