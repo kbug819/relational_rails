@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get "/residents/:id/edit", to: "residents#edit"
   patch "residents/:id/", to: 'residents#update'
   get "/shelters/:id/residents/sorted_a", to: "shelter_residents#sorted_a"
+  delete "/shelters/:id", to: 'shelters#destroy'
 end
