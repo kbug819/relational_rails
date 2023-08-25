@@ -9,11 +9,9 @@
 <textarea name='address'><%= @shelter.address %></textarea><br/>
 
 <p>Is Case Management Available?</p>
-<input list="case_management_available" value="<%= @shelter.case_management_available %>">
-<datalist id="case_management_available">
-  <option value="true">
-  <option value="false">
-</datalist>
+<input type name='case_management_available' value="<%= @shelter.case_management_available %>"/><br/>
+
+
 <p>Capasity</p>
 <input type='text' name='capasity' value="<%= @shelter.capasity %>"/><br/>
 <input type='submit'/>
