@@ -8,7 +8,9 @@
 </header>
 
 <% @residents.each do |resident| %>
-  <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a></h3>
+  <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a>
+  <a href="/residents/<%= resident.id %>/edit">Edit Resident Record</a>
+  </h3>
   <p>Long Term Housing Needed: <%=resident.long_term_housing_need%></p>
   <p>Family Size: <%=resident.family_size%></p>
   <p>Current Shelter ID: <%=resident.shelter_id%></p>
