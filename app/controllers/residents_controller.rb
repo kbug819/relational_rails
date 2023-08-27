@@ -22,4 +22,9 @@ class ResidentsController < ApplicationController
     redirect_to "/residents/#{resident.id}"
   end
 
+  def destroy
+    Resident.destroy(params[:id])
+    redirect_to '/residents'
+  end
+
 end

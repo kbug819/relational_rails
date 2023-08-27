@@ -1,0 +1,16 @@
+<body>
+  <p><h1><a href="/shelters">Shelter List</a></h1></p>
+  <p><h1><a href="/residents">List of All Residents</a></h1></p>
+
+  <h1><%= @shelter.shelter_name %> Residents</h1>
+  <p><a href="/shelters/<%= @shelter.id %>/residents/sorted_a">Sort List Alphabetically</a></p>
+
+  <% @sorted.each do |resident| %>
+    <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a></h3>
+    <p>Long Term Housing Needed: <%= resident.long_term_housing_need %></p>
+    <p>Family Size: <%= resident.family_size %></p>
+    <p>Current Shelter ID: <%= resident.shelter_id %></p>
+  <% end %>
+
+  <p><a href="/shelters/<%= @shelter.id %>/residents/new">Add New Associated Resident</a></p>
+</body>

@@ -75,4 +75,16 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
         expect(page).to have_content("Update Shelter Record")
     end
   end
+
+  describe "User Story 19" do
+    it "enables the user to permanently delete a record" do
+        arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+        austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
+        jones = arlington_life.residents.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4)
+        bradley = austin_street.residents.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2) 
+
+        visit "/shelters/#{arlington_life.id}"
+        expect(page).to have_button("delete")
+    end
+  end
 end

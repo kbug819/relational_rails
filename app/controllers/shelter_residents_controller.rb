@@ -30,4 +30,14 @@ class ShelterResidentsController < ApplicationController
     @sorted = @residents.order_by_alphabetical
   end
 
+  def by_family_view
+    @shelter = Shelter.find(params[:id])
+    @residents = @shelter.residents
+    family_size = params[:family_size].to_i
+    # @filtered_view = Resident.where
+    @sorted = @residents.only_specific_family_size(family_size)
+
+    render 'by_family_view'
+  end
+
 end

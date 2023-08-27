@@ -8,6 +8,11 @@
 <p>Current Disaster Shelter ID: <%=@resident.shelter_id %></p>
 
 <a href="/residents/<%= @resident.id %>/edit">Edit Resident Information</a>
+<form action="/residents/<%= @resident.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete"/>
+</form>
 
 
 </body>
