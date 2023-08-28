@@ -85,6 +85,11 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
 
         visit "/shelters/#{arlington_life.id}"
         expect(page).to have_content("Update Shelter Record")
+        click_link("Update Shelter Record")
+        expect(page).to have_content("Shelter Name")
+        fill_in('shelter_name', with: "Test1")
+        click_button('Update Shelter Record')
+        expect(page).to have_content("Test1")
     end
   end
 
