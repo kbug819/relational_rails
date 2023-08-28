@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <ul>
+    <li><a href="/">Welcome Page</a><li>
+    <li><a href="/shelters">Shelter List</a><li>
+    <li><a href="/residents">List of All Residents</a></li>
+  </ul>
+</head>
+
 <body>
-<p><h11><a href="/shelters">Shelter List</a></h11></p>
-<p><h11><a href="/residents">List of All Residents</a></h11></p>
 
 <h1><%= @shelter.shelter_name %></h1>
 <p>Shelter Address: <%=@shelter.address %></p>
@@ -18,3 +27,4 @@
 <p><a href="/shelters/<%= @shelter.id %>/residents">Current Residents At This Shelter</a></p>
 
 </body>
+</html>

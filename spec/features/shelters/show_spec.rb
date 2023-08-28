@@ -1,18 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe "Disaster Shelter Show", type: :feature do
-  describe "2. As a visitor" do
-    describe "when I visit '/shelter/:id" do
-      it "then I see the parent with that id including the parent's attributes" do
-        arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
-        austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
-        visit "/shelters/#{arlington_life.id}"
+  describe "2. As a visitor when I visit '/shelter/:id" do
+    it "then I see the parent with that id including the parent's attributes" do
 
-        expect(page).to have_content(arlington_life.shelter_name)
-        expect(page).to have_content("Address: #{arlington_life.address}")
-        expect(page).to have_content("Case Management Available: #{arlington_life.case_management_available}")
-        expect(page).to have_content("Capasity: #{arlington_life.capasity}")
-      end
+      arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+      austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
+      visit "/shelters/#{arlington_life.id}"
+
+      expect(page).to have_content(arlington_life.shelter_name)
+      expect(page).to have_content("Address: #{arlington_life.address}")
+      expect(page).to have_content("Case Management Available: #{arlington_life.case_management_available}")
+      expect(page).to have_content("Capasity: #{arlington_life.capasity}")
+
+      visit "/shelters/#{austin_street.id}"
+      expect(page).to have_content(austin_street.shelter_name)
+      expect(page).to have_content("Address: #{austin_street.address}")
+      expect(page).to have_content("Case Management Available: #{austin_street.case_management_available}")
+      expect(page).to have_content("Capasity: #{austin_street.capasity}")
     end
   end
 

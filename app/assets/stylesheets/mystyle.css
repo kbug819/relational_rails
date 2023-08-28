@@ -5,12 +5,12 @@ body {
   font-size: 20px;
 }
 
-.header-links ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.header-links li {
+li {
   display: inline
 }
