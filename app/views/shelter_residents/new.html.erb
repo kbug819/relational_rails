@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css"
+
+  <ul>
+    <li><a href="/">Welcome Page</a><li>
+    <li><a href="/shelters">Shelter List</a><li>
+    <li><a href="/residents">List of All Residents</a></li>
+  </ul>
+</head>
+
+<body>
+
 <form action="/shelters/<%= @shelter.id %>/new" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <h1>Enter a new associated resident record:</h1>
@@ -11,4 +25,6 @@
 <input type='submit'/>
 
 </form>
+</body>
+</html>
 

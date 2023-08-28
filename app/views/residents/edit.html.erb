@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css"
+
+  <ul>
+    <li><a href="/">Welcome Page</a><li>
+    <li><a href="/shelters">Shelter List</a><li>
+    <li><a href="/residents">List of All Residents</a></li>
+  </ul>
+</head>
+
+<body>
+
 <form action="/residents/<%= @resident.id %>" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="PATCH" />
@@ -14,5 +28,7 @@
 
 
 </form>
+</body>
+</html>
 
 
