@@ -35,6 +35,25 @@ RSpec.describe "Disaster Shelter resident_view", type: :feature do
     end
   end
 
+  describe "21" do
+    it "allows the user to filter by family size" do
+      arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+      austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
+      jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
+      bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{arlington_life.id}")
+      jackson = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{arlington_life.id}")
+      george = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{arlington_life.id}")
+      visit "/shelters/#{arlington_life.id}/residents"
+      expect(page).to have_content("Filter by Family Size")
+      fill_in('family_size', with: '2')
+      click_button('submit')
+      expect(page).to have_content(bradley.family_name)
+      expect(page).to have_content(jackson.family_name)
+      expect(page).to have_content(george.family_name)
+      expect(page).to_not have_content(jones.family_name)
+    end
+  end
+
   describe "23" do
     it "gives the user the ability to delete a resident from the index page" do
       arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
