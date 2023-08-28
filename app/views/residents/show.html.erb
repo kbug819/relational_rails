@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css"
+
+<ul>
+<li><a href="/">Welcome Page</a><li>
+<li><a href="/shelters">Shelter List</a><li>
+<li><a href="/residents">List of All Residents</a></li>
+</ul>
+
 <body>
-<p><h11><a href="/shelters">Shelter List</a></h11></p>
-<p><h11><a href="/residents">List of All Residents</a></h11></p>
 
 <h1><%= @resident.family_name %></h1>
 <p>Long Term Housing Need: <%=@resident.long_term_housing_need %></p>
@@ -16,3 +25,4 @@
 
 
 </body>
+</html>
