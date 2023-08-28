@@ -86,6 +86,9 @@ RSpec.describe "Resident Index", type: :feature do
         bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{austin_street.id}")
         visit "/residents"
         expect(page).to have_button('delete')
+        expect(page).to have_content(jones.family_name)
+        click_button('delete')
+        expect(page).not_to have_content(jones.family_name)
     end
   end
 end
