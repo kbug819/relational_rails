@@ -3,18 +3,17 @@ require 'rails_helper'
 RSpec.describe "Disaster Shelter Index", type: :feature do
   describe "1. For each Shelter table" do
     it "I see the name of each Shelter record in the system" do
-
       arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
       austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
+      
       visit "/shelters"
-
       expect(page).to have_content(arlington_life.shelter_name)
       expect(page).to have_content(austin_street.shelter_name)
     end
   end
 
   describe "6. As a Visitor" do
-    describe "when I visit the parent index, records are ordered by recently created" do
+    describe "when I visit the shelter index, records are ordered by most recently created" do
       it "and next to each of the records I see when it was created" do
         arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
         austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
@@ -38,16 +37,33 @@ RSpec.describe "Disaster Shelter Index", type: :feature do
       visit "/shelters"
       expect(page).to have_content("Shelter List")
       click_link("Shelter List")
+      expect(page).to have_content("Shelter List")
+      visit "/shelters/#{arlington_life.id}/"
+      expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
+      visit "/shelters/#{arlington_life.id}/edit"
+      expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
+      visit "/shelters/new"
+      expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
+
       visit "/residents"
       expect(page).to have_content("Shelter List")
       click_link("Shelter List")
       visit "/residents/#{jones.id}/"
       expect(page).to have_content("Shelter List")
       click_link("Shelter List")
-      visit "/shelters/#{arlington_life.id}/"
+      visit "/residents/#{jones.id}/edit"
       expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
+
       visit "/shelters/#{arlington_life.id}/residents"
       expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
+      visit "/shelters/#{arlington_life.id}/residents/new"
+      expect(page).to have_content("Shelter List")
+      click_link("Shelter List")
     end
   end
 
@@ -55,6 +71,7 @@ RSpec.describe "Disaster Shelter Index", type: :feature do
     describe "when I visit the parent index page I see a link to create a new shelter record 'New Shelter" do
       it "when I click the link, I'm taken to '/shelters/new' where I see a form for a new parent record" do
         visit "/shelters"
+
         expect(page).to have_content("Add New Shelter")
         click_link('Add New Shelter')
         expect(page).to have_content("Shelter Name")
@@ -75,6 +92,7 @@ RSpec.describe "Disaster Shelter Index", type: :feature do
     describe "I can visit the index page and see an edit button next to each shelter" do
       it "will take the user to the edit page for that shelter" do
         arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+        
         visit "/shelters"
         expect(page).to have_content("Edit Shelter Record")
         click_link("Edit Shelter Record")

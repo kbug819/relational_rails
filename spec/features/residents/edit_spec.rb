@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Resident Show", type: :feature do
   describe "18 As a visitor" do
-    describe "I can visit the residnt index page and see an edit button next to each resident" do
-      it "will take the user to the edit page for that shelter" do
+    describe "I can visit the resident index page and see an edit button next to each resident" do
+      it "the button will take the me to the edit page for that shelter" do
         arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
         austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
         jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
