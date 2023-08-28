@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
-
 <body>
 
-
 <form action="/shelters/<%= @shelter.id %>" method="post">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<input type="hidden" name="_method" value="PATCH" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
 
-<h1>EDIT a new shelter record:</h1>
-<p>Shelter Name</p>
-<input type name='shelter_name' value="<%= @shelter.shelter_name %>"/><br/>
-<p>Address</p>
-<textarea name='address'><%= @shelter.address %></textarea><br/>
+  <h1>EDIT a new shelter record:</h1>
+  <p>Shelter Name</p>
+  <input type name='shelter_name' value="<%= @shelter.shelter_name %>"/><br/>
+  <p>Address</p>
+  <textarea name='address'><%= @shelter.address %></textarea><br/>
 
-<p>Is Case Management Available?</p>
-<input type name='case_management_available' value="<%= @shelter.case_management_available %>"/><br/>
+  <p>Is Case Management Available?</p>
+  <input type name='case_management_available' value="<%= @shelter.case_management_available %>"/><br/>
 
 
-<p>Capasity</p>
-<input type='text' name='capasity' value="<%= @shelter.capasity %>"/><br/>
-<input type='submit' value='Update Shelter Record'/>
+  <p>Capasity</p>
+  <input type='text' name='capasity' value="<%= @shelter.capasity %>"/><br/>
+  <input type='submit' value='Update Shelter Record'/>
 </form>
 
 

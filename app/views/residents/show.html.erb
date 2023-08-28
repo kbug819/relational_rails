@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-</header>
-
-<body>
-
-<h1><%= @resident.family_name %></h1>
-<p>Long Term Housing Need: <%=@resident.long_term_housing_need %></p>
-<p>Family Size: <%=@resident.family_size %></p>
-<p>Current Disaster Shelter ID: <%=@resident.shelter_id %></p>
-
-<a href="/residents/<%= @resident.id %>/edit">Edit Resident Information</a>
-<form action="/residents/<%= @resident.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete"/>
-</form>
+  <head>
+    <header>
+    </header>
+  <body>
+    <h1><%= @resident.family_name %></h1>
+    <p>Long Term Housing Need: <%=@resident.long_term_housing_need %></p>
+    <p>Family Size: <%=@resident.family_size %></p>
+    <p>Current Disaster Shelter ID: <%=@resident.shelter_id %></p>
+    <a href="/residents/<%= @resident.id %>/edit">Edit Resident Information</a>
+    
+    <form action="/residents/<%= @resident.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+    </form>
 
 
 </body>
