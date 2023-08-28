@@ -18,6 +18,7 @@ class ResidentsController < ApplicationController
       long_term_housing_need: params[:long_term_housing_need],
       family_size: params[:family_size]
     })
+
     resident.save
     redirect_to "/residents/#{resident.id}"
   end
@@ -26,5 +27,4 @@ class ResidentsController < ApplicationController
     Resident.destroy(params[:id])
     redirect_to '/residents'
   end
-
 end
