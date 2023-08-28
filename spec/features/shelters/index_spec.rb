@@ -51,13 +51,22 @@ RSpec.describe "Disaster Shelter Index", type: :feature do
     end
   end
 
-  describe "11.1 As a visitor" do
-    describe "when I visit the parent index page" do
-      describe "I see a link to create a new shelter record 'New Shelter" do
-        it "when I click the link, I'm taken to '/shelters/new' where I see a form for a new parent record" do
-          visit "/shelters"
-          expect(page).to have_content("Add New Shelter")
-        end
+  describe "11 As a visitor" do
+    describe "when I visit the parent index page I see a link to create a new shelter record 'New Shelter" do
+      it "when I click the link, I'm taken to '/shelters/new' where I see a form for a new parent record" do
+        visit "/shelters"
+        expect(page).to have_content("Add New Shelter")
+        click_link('Add New Shelter')
+        expect(page).to have_content("Shelter Name")
+        expect(page).to have_content("Address")
+        expect(page).to have_content("Is Case Management Available")
+        expect(page).to have_content("Capasity")
+        fill_in('shelter_name', with: "Test1")
+        fill_in('address', with: "addresstest")
+        fill_in('case_management_available', with: "true")
+        fill_in('capasity', with: "30")
+        click_button('Submit New Shelter Record')
+        expect(page).to have_content("Test1")
       end
     end
   end
