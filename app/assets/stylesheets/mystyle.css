@@ -5,6 +5,10 @@ body {
   font-size: 20px;
 }
 
+h1 {
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -14,3 +18,4 @@ ul {
 li {
   display: inline
 }
+

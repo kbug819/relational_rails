@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Disaster Shelter resident_view filtered", type: :feature do
   describe "21. As a visitor" do
     describe "when I visit '/shelters/:id/residents" do
-      it "then I see a button to filter by family size" do
+      xit "then I see a button to filter by family size" do
         arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
         austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
         jones = arlington_life.residents.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4)

@@ -6,6 +6,13 @@ RSpec.describe Resident do
     it {should belong_to :shelter}
   end
 
+  describe 'validations' do
+    it { should validate_presence_of :family_name}
+    it { should validate_presence_of :family_size}
+    it { should allow_value(true).for(:long_term_housing_need)}
+    it { should allow_value(false).for(:long_term_housing_need)}
+  end
+
   describe "#15 As a visitor, when a visitor visits the resident's index" do
     it "only shows records where the boolean column is true" do
       arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
