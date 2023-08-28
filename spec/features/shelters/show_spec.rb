@@ -46,10 +46,13 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
         austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
         jones = arlington_life.residents.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4)
         bradley = austin_street.residents.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2) 
+        johnson = austin_street.residents.create!(family_name: "George", long_term_housing_need: false, family_size: 2) 
 
         visit "/shelters/#{arlington_life.id}"
+        expect(page).to have_content("Current Number of Residents at this Shelter: 1")
 
-        expect(page).to have_content("Current Resident Count: 1")
+        visit "/shelters/#{austin_street.id}"
+        expect(page).to have_content("Current Number of Residents at this Shelter: 2")
       end
     end
   end
