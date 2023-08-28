@@ -19,8 +19,10 @@ RSpec.describe Resident do
       austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
       jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
       bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{austin_street.id}")
+      jackson = Resident.create!(family_name: "Bradley", long_term_housing_need: true, family_size: 2, shelter_id: "#{austin_street.id}")
+      monte = Resident.create!(family_name: "Bradley", long_term_housing_need: true, family_size: 2, shelter_id: "#{austin_street.id}")
       
-      expect(Resident.only_true).to eq([jones])
+      expect(Resident.only_true).to eq([jones, jackson, monte])
     end
   end
 
