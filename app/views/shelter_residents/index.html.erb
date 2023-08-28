@@ -1,17 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
 <body>
-  <p><h11><a href="/shelters">Shelter List</a></h11></p>
-  <p><h11><a href="/residents">List of All Residents</a></h11></p>
 
-  <h1><%=@shelter.shelter_name%> Residents</h1>
-    <p><h5><a href="/shelters/<%= @shelter.id %>/residents/sorted_a">Sort List Alphabetically</a></h5></p>
 
-    <form action="/shelters/<%= @shelter.id %>/residents/by_family_view" method="post">
+<h1><%=@shelter.shelter_name%> Residents</h1>
+<p><h3><a href="/shelters/<%= @shelter.id %>/residents/new">Add New Associated Resident to This Shelter</a></h3></p>
+    # <p><h5><a href="/shelters/<%= @shelter.id %>/residents/sorted_a">Sort List Alphabetically</a></h5></p>
+    <p><h5><a href="/shelters/<%= @shelter.id %>/residents?sorted=true">Sort List Alphabetically</a></h5></p>
+    
+
+    <form action="/shelters/<%= @shelter.id %>/residents" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="sort" value="true">
     <p>Filter by Family Size</p>
     <p>Family Size</p>
     <input type='number' name='family_size'/><br/>
     <input type='submit' value='submit'/>
     </form>
+
+
     
 
 
@@ -31,7 +41,7 @@
 <% end %>
 
 
-<p><h5><a href="/shelters/<%= @shelter.id %>/residents/new">Add New Associated Resident</a></h5></p>
 
 
 </body>
+</html>

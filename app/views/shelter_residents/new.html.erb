@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+
+<body>
+
 <form action="/shelters/<%= @shelter.id %>/new" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <h1>Enter a new associated resident record:</h1>
@@ -8,7 +17,9 @@
 <p>Family Size</p>
 <input type='number' name='family_size'/><br/>
 <input type="hidden" name="shelter_id" value="<%= @shelter.id %>">
-<input type='submit'/>
+<input type='submit', value='Add New Resident Record'/>
 
 </form>
+</body>
+</html>
 

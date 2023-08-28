@@ -1,7 +1,21 @@
 class ShelterResidentsController < ApplicationController
   def index
     @shelter = Shelter.find(params[:id])
-    @residents = @shelter.residents
+    # family_size = params[:family_size].to_i
+
+    if params[:sorted] == "true"
+      @residents = @shelter.residents.order_by_alphabetical
+
+    elsif params[:family_size].present?
+      @residents = @shelter.residents.only_specific_family_size(params[:family_size])
+    else
+      @residents = @shelter.residents
+    end
+
+    # if params[:sorted] == "true"
+    #   @residents = @shelter.residents.order_by_alphabetical
+    # end
+
   end
 
   def new
@@ -34,10 +48,18 @@ class ShelterResidentsController < ApplicationController
     @shelter = Shelter.find(params[:id])
     @residents = @shelter.residents
     family_size = params[:family_size].to_i
-    # @filtered_view = Resident.where
     @sorted = @residents.only_specific_family_size(family_size)
 
-    render 'by_family_view'
+    # render 'by_family_view'
   end
+
+  # def by_family_view
+  #   @shelter = Shelter.find(params[:id])
+  #   @residents = @shelter.residents
+  #   family_size = params[:family_size].to_i
+  #   @sorted = @residents.only_specific_family_size(family_size)
+  # end
+
+
 
 end

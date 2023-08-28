@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
 <form action="/residents/<%= @resident.id %>" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="PATCH" />
@@ -10,9 +18,11 @@
 
 <p>Family Size</p>
 <input type name='family_size'value="<%= @resident.family_size %>"/><br/>
-<input type='submit'/>
+<input type='submit' value='Update Resident Record'/>
 
 
 </form>
+</body>
+</html>
 
 

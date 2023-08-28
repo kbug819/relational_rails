@@ -19,9 +19,12 @@ Rails.application.routes.draw do
   post "/shelters/:id/new", to: "shelter_residents#create"
   get "/residents/:id/edit", to: "residents#edit"
   patch "residents/:id/", to: 'residents#update'
-  get "/shelters/:id/residents/sorted_a", to: "shelter_residents#sorted_a"
+  # get "/shelters/:id/residents/sorted_a", to: "shelter_residents#sorted_a"
   delete "/shelters/:id", to: 'shelters#destroy'
   delete "/residents/:id", to: 'residents#destroy'
+  post "/shelters/:id/residents", to: 'shelter_residents#index'
+  get "/shelters/:id/residents", to: "shelter_residents#index"
+
+
   # get "/shelters/:id/residents/by_family_view", to: 'shelter_residents#by_family_view'
-  post "/shelters/:id/residents/by_family_view", to: 'shelter_residents#by_family_view'
 end

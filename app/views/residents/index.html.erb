@@ -1,12 +1,13 @@
-<body>
-<p><h11><a href="/shelters">Shelter List</a></h11></p>
-<p><h11><a href="/residents">List of All Residents</a></h11></p>
-
+<!DOCTYPE html>
+<html>
+<head>
 
 <header>
 <h1>All Residents</h1>
 </header>
+</head>
 
+<body>
 <% @residents.each do |resident| %>
   <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a>
   <a href="/residents/<%= resident.id %>/edit">Edit Resident Record</a>
@@ -22,5 +23,6 @@
 <% end %>
 
 </body>
+</html>
 
 
