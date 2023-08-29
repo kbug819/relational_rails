@@ -14,7 +14,7 @@ class Resident < ApplicationRecord
   end
 
   def self.only_specific_family_size(family_size)
-    where(family_size: [family_size])
+    where("family_size >= ?", family_size)
   end
 
 end
