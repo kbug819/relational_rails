@@ -5,29 +5,19 @@
 
   <body>
 
-    <form action="/residents/<%= @resident.id %>" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="_method" value="PATCH" />
-      <h1>EDIT resident record:</h1>
-      <p>Family Name</p>
-      <input type name='family_name' value="<%= @resident.family_name %>"/><br/>
-      <p>Long Term Housing Needed?</p>
-      <input type name='long_term_housing_need'value="<%= @resident.long_term_housing_need %>"/><br/>
-      <p>Family Size</p>
-      <input type name='family_size'value="<%= @resident.family_size %>"/><br/>
-      <input type='submit' value='Update Resident Record'/>
-    </form>
-    
-    <%= form_with url: "/residents/#{@resident.id}", method: :patch, data: {turbo: false} do |form|
-    %>
-      <%= form.label :family_name %>
-      <%= form.text_field :family_name %>
-      <%= form.label :long_term_housing_need %>
-      <%= form.text_field :long_term_housing_need %>
-      <%= form.label :family_size %>
-      <%= form.text_field :family_size %>
-      <%= form.submit 'Update Resident Record' %>
-      <% end %>
+  <form action="/residents/<%= @resident.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <h1>EDIT resident record:</h1>
+  <p>Family Name</p>
+  <input type name='family_name' value="<%= @resident.family_name %>"/><br/>
+  <p>Long Term Housing Needed?</p>
+  <input type name='long_term_housing_need'value="<%= @resident.long_term_housing_need %>"/><br/>
+  <p>Family Size</p>
+  <input type name='family_size'value="<%= @resident.family_size %>"/><br/>
+  <input type='submit' value='Update Resident Record'/>
+</form>
+
 </body>
 </html>
 

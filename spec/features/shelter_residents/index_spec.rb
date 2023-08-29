@@ -38,6 +38,7 @@ RSpec.describe "Disaster Shelter resident_view", type: :feature do
         expect(page).to have_content(jackson.family_name)
         expect(page).to have_content(jabrasher.family_name)
         click_link('Sort List Alphabetically')
+        expect(bradley.family_name).to appear_before(jabrasher.family_name)
         expect(page).to have_content(bradley.family_name)
         expect(page).to have_content(jabrasher.family_name)
         expect(page).to have_content(jackson.family_name)
