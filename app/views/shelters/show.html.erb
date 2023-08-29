@@ -10,7 +10,7 @@
   <p>Shelter Address: <%=@shelter.address %></p>
   <p>Case Management Available: <%=@shelter.case_management_available %></p>
   <p>Capasity: <%=@shelter.capasity %></p>
-  <p>Current Number of Residents at this Shelter: <%=@shelter.residents.count%></p>
+  <p>Current Number of Residents at this Shelter: <%=@shelter_count%></p>
 <a href="/shelters/<%= @shelter.id %>/edit">Update Shelter Record</a>
 <form action="/shelters/<%= @shelter.id %>" method="POST">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

@@ -8,6 +8,7 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
+    @shelter_count = @shelter.count_all
   end
 
   def create

@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Shelter, type: :model do
-  # describe "validations" do
-  #   it { should validate_presence_of :shelter_name }
-  # end
-
   describe 'relationships' do
     it { should have_many :residents }
   end
@@ -28,6 +24,18 @@ RSpec.describe Shelter, type: :model do
       jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
       bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{austin_street.id}")
       expect(Shelter.order_by_creation).to eq([austin_street, boston_street, arlington_life])
+    end
+  end
+
+  describe "#7" do
+    it "shows how many associated records on the shelter show page" do
+      arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
+      jones = Resident.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4, shelter_id: "#{arlington_life.id}")
+      bradley = Resident.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2, shelter_id: "#{arlington_life.id}")
+      jackson = Resident.create!(family_name: "Bradley", long_term_housing_need: true, family_size: 2, shelter_id: "#{arlington_life.id}")
+      monte = Resident.create!(family_name: "Bradley", long_term_housing_need: true, family_size: 2, shelter_id: "#{arlington_life.id}")
+
+      expect(arlington_life.count_all).to eq(4)
     end
   end
 end
