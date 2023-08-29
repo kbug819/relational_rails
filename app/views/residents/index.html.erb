@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-<header>
-<h1>All Residents</h1>
-</header>
-</head>
+    <header>
+      <h1>All Residents</h1>
+    </header>
+  </head>
 
 <body>
-<% @residents.each do |resident| %>
-  <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a>
-  <a href="/residents/<%= resident.id %>/edit">Edit Resident Record</a>
+  <% @residents.each do |resident| %>
+    <h3><a href="/residents/<%= resident.id %>"><%= resident.family_name %></a>
+    <a href="/residents/<%= resident.id %>/edit">Edit Resident Record</a>
+    
     <form action="/residents/<%= resident.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
     </form>
-  </h3>
+
+    </h3>
   <p>Long Term Housing Needed: <%=resident.long_term_housing_need%></p>
   <p>Family Size: <%=resident.family_size%></p>
   <p>Current Shelter ID: <%=resident.shelter_id%></p>
-<% end %>
-
+  <% end %>
 </body>
 </html>
 

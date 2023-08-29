@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+  </head>
 
-</head>
+  <body>
 
-<body>
-
-<form action="/residents/<%= @resident.id %>" method="post">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<input type="hidden" name="_method" value="PATCH" />
-
-<h1>EDIT resident record:</h1>
-<p>Family Name</p>
-<input type name='family_name' value="<%= @resident.family_name %>"/><br/>
-<p>Long Term Housing Needed?</p>
-<input type name='long_term_housing_need'value="<%= @resident.long_term_housing_need %>"/><br/>
-
-<p>Family Size</p>
-<input type name='family_size'value="<%= @resident.family_size %>"/><br/>
-<input type='submit' value='Update Resident Record'/>
-
-
+  <form action="/residents/<%= @resident.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <h1>EDIT resident record:</h1>
+  <p>Family Name</p>
+  <input type name='family_name' value="<%= @resident.family_name %>"/><br/>
+  <p>Long Term Housing Needed?</p>
+  <input type name='long_term_housing_need'value="<%= @resident.long_term_housing_need %>"/><br/>
+  <p>Family Size</p>
+  <input type name='family_size'value="<%= @resident.family_size %>"/><br/>
+  <input type='submit' value='Update Resident Record'/>
 </form>
+
 </body>
 </html>
 

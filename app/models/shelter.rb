@@ -9,4 +9,8 @@ class Shelter < ApplicationRecord
   def self.order_by_creation
     self.all.order(created_at: :asc)
   end
+
+  def count_all
+    residents.count
+  end
 end

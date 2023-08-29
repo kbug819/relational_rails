@@ -1,24 +1,12 @@
-# README
+## Relational Rails - Disaster Shelters and Residnets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Project Summary
+This project looks at the relationship between a parent (Disaster Shelter) and it's children (Residents)
+- This project uses the scenario of a cities Disaster Shelter sites, and the cities residents at each shelter.
 
-Things you may want to cover:
+### Schema Design
 
-* Ruby version
+[Schema Image](https://files.slack.com/files-pri/T029P2S9M-F05PJGF4C80/image.png)
 
-* System dependencies
+- After starting the project, 'Disaster Shelters' was changed to 'Shelters' in order to better work with the code.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

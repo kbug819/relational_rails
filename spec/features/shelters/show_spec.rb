@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe "Disaster Shelter Show", type: :feature do
   describe "2. As a visitor when I visit '/shelter/:id" do
     it "then I see the parent with that id including the parent's attributes" do
-
       arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
       austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25) 
+      
       visit "/shelters/#{arlington_life.id}"
-
       expect(page).to have_content(arlington_life.shelter_name)
       expect(page).to have_content("Address: #{arlington_life.address}")
       expect(page).to have_content("Case Management Available: #{arlington_life.case_management_available}")
@@ -30,7 +29,6 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
         bradley = austin_street.residents.create!(family_name: "Bradley", long_term_housing_need: false, family_size: 2) 
         
         visit "/shelters/#{arlington_life.id}/residents"
-
         expect(page).to have_content(jones.family_name)
         expect(page).to have_content("Long Term Housing Needed: #{jones.long_term_housing_need}")
         expect(page).to have_content("Family Size: #{jones.family_size}")
@@ -41,7 +39,7 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
 
   describe "7. As a visitor" do
     describe "when I visit a shelter's show page" do
-      it "I see a countt of the number of residents associated with this parent" do
+      it "I see a count of the number of residents associated with this parent" do
         arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
         austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
         jones = arlington_life.residents.create!(family_name: "Jones", long_term_housing_need: true, family_size: 4)
@@ -57,7 +55,7 @@ RSpec.describe "Disaster Shelter Show", type: :feature do
     end
   end
 
-  describe "10. As a visitor when I visi a shelter show page" do
+  describe "10. As a visitor when I visit a shelter show page" do
     it "I see a link to take me to the residents of that shelter's page" do
       arlington_life = Shelter.create!(shelter_name: "Arlington Life Shelter", address: "lkahlsdkfh", case_management_available: true, capasity: 50)
       austin_street = Shelter.create!(shelter_name: "Austin Street Shelter", address: "lkahlsdkfh", case_management_available: false, capasity: 25)
