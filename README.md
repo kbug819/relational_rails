@@ -1,4 +1,4 @@
-## Relational Rails - Disaster Shelters and Residnets
+## Relational Rails - Disaster Shelters and Residents
 
 ### Project Summary
 This project looks at the relationship between a parent (Disaster Shelter) and it's children (Residents)
